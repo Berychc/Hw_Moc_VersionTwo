@@ -21,7 +21,7 @@ public class TestEmployeeService {
     private final EmoloyeeService employeeService = new EmployeeServiceImpl();
 
     @Test
-    void AddEmployeeTest() {
+    void addEmployeeTest() {
 
         Employee expected = new Employee(FIRST_NAME, LAST_NAME, DEPARTMENT, SALARY);
 
@@ -37,7 +37,7 @@ public class TestEmployeeService {
     }
 
     @Test
-    void EmployeeAlreadyAddedExceptionTest() {
+    void employeeAlreadyAddedExceptionTest() {
         Employee existed = employeeService.add(FIRST_NAME, LAST_NAME, DEPARTMENT, SALARY);
 
         assertTrue(employeeService.getEmployees().contains(existed));
@@ -45,21 +45,21 @@ public class TestEmployeeService {
     }
 
     @Test
-    void FindEmployeeTest() {
+    void findEmployeeTest() {
         Employee existed = employeeService.add(FIRST_NAME, LAST_NAME, DEPARTMENT, SALARY);
 
         assertEquals(existed, employeeService.find(FIRST_NAME, LAST_NAME, DEPARTMENT, SALARY));
     }
 
     @Test
-    void EmployeeNotFoundExceptionTest() {
+    void employeeNotFoundExceptionTest() {
         assertEquals(0, employeeService.getEmployees().size());
 
         assertThrows(RuntimeException.class, () -> employeeService.find(FIRST_NAME, LAST_NAME, DEPARTMENT, SALARY));
     }
 
     @Test
-    void RemoveEmployeeTest() {
+    void removeEmployeeTest() {
         Employee expected = employeeService.add(FIRST_NAME, LAST_NAME, DEPARTMENT, SALARY);
 
         assertEquals(1, employeeService.getEmployees().size());
@@ -73,19 +73,19 @@ public class TestEmployeeService {
     }
 
     @Test
-    void EmployeeRemoveNotFoundExceptionTest() {
+    void employeeRemoveNotFoundExceptionTest() {
         assertTrue(employeeService.getEmployees().isEmpty());
 
         assertThrows(RuntimeException.class, () -> employeeService.remove(FIRST_NAME, LAST_NAME, DEPARTMENT, SALARY));
     }
 
     @Test
-    void EmptyCollectionTest() {
+    void emptyCollectionTest() {
         assertIterableEquals(emptyList(), employeeService.getEmployees());
     }
 
     @Test
-    void CollectionListTest() {
+    void collectionListTest() {
         Employee employee = employeeService.add(FIRST_NAME, LAST_NAME, DEPARTMENT, SALARY);
 
         Employee employee2 = employeeService.add(FIRST_NAME_2, LAST_NAME_2, DEPARTMENT, SALARY);
