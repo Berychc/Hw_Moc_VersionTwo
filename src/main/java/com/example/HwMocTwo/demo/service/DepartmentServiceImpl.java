@@ -11,10 +11,10 @@ import java.util.stream.Collectors;
 @Service
 public class DepartmentServiceImpl implements DepartmentService {
 
-    private final EmployeeServiceImpl employeeService;
+    private final EmoloyeeService employeeService;
 
-    public DepartmentServiceImpl(EmployeeServiceImpl employeeService) {
-        this.employeeService = employeeService;
+    public DepartmentServiceImpl(EmoloyeeService emoloyeeService) {
+        this.employeeService = emoloyeeService;
     }
 
     @Override
